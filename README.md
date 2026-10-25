@@ -16,7 +16,12 @@ All three are MIT-licensed by the PREFIRE Mission Team. Nothing inside the submo
 
 ## Software and data
 
-- Python 3.10 with numpy, scipy and netcdf4 from conda-forge, and git (to record the code versions in the product).
+- Python 3.10, as in `PREFIRE_L3/README.md`, and git (to record the code versions in the product). `environment.yml` holds the checked conda-forge set:
+
+  ```sh
+  conda env create -f environment.yml
+  ```
+
 - Inputs: the R01 2B-SFC, AUX-MET and AUX-SAT granules for the period, from NASA LaRC ASDC (Earthdata login), with their archive file names unchanged, in three subfolders `2B-SFC/`, `AUX-MET/` and `AUX-SAT/` of the folder given as `L2B_PRODUCT_DIR` (an absolute path). One day for one satellite is 51 files, about 1.2 GB; a month, the official period, is about 31 GB. If an AUX-SAT file is missing, the code quietly uses the AUX-MET surface type instead, which changes the sorting.
 - Memory is set by the output grid, not the period: about 22.5 GB for all 63 channels at once, or about 7.6 GB per group of 21 channels with `SPECTRAL_IDX_RANGE_0BI`.
 

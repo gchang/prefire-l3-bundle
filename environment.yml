@@ -1,0 +1,13 @@
+# Conda environment for the PREFIRE_L3 bundle: the conda-forge set the 2026-10-25 check ran with.
+# Create it with: conda env create -f environment.yml
+name: prefire-l3-bundle
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10   # the version PREFIRE_L3/README.md installs; checked with 3.10
+  - numpy
+  - scipy         # listed in PREFIRE_L3/README.md; kept as the author's set, though nothing on the run path imports it
+  - netcdf4
+  - git           # determine_prdgit.py calls git to record the code versions in the product
+  # Left out on purpose: the plotting packages PREFIRE_PRD_GEN uses for browse images (matplotlib,
+  # cartopy, shapely, geopandas, pandas), because this bundle's run does not call produce_PRD.py.
