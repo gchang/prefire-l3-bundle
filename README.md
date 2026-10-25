@@ -34,13 +34,13 @@ source bundle_env.sh
 python PREFIRE_L3/dist/determine_prdgit.py      # records the code versions; the product step needs it
 export ANCILLARY_DATA_DIR=$PWD/PREFIRE_L3/dist/ancillary \
        L2B_PRODUCT_DIR=/abs/path/to/inputs OUTPUT_DIR=/path/to/output \
-       PRODUCT_MONIKER=3-SFC-SORTED-ALLSKY SAT_NUM=1 \
+       PRODUCT_MONIKER=3-SFC-SORTED-ALLSKY SAT_NUM=1 PRODUCT_FULLVER=R01_P00 \
        UTC_DTREP_RANGE_TO_PROC=2024-10-07T00:00:00Z,2024-10-08T00:00:00Z \
        SPECTRAL_IDX_RANGE_0BI=ATRACK_IDXRANGE_0BASED_INCLUSIVE:0:20
 python PREFIRE_L3/dist/produce_L3.py
 ```
 
-The channel range uses the three-part form that `PREFIRE_L3/README.md` documents; run the three groups `...:0:20`, `...:21:41` and `...:42:62` to cover all 63 channels in about 7.6 GB each, or leave `SPECTRAL_IDX_RANGE_0BI` unset to process all channels in one run (about 22.5 GB). `PRODUCT_FULLVER` is not needed: the product version comes from the input granules.
+The channel range uses the three-part form that `PREFIRE_L3/README.md` documents; run the three groups `...:0:20`, `...:21:41` and `...:42:62` to cover all 63 channels in about 7.6 GB each, or leave `SPECTRAL_IDX_RANGE_0BI` unset to process all channels in one run (about 22.5 GB). `PRODUCT_FULLVER` must be set (`produce_L3.py` reads it at startup), but its value is not used: the product version comes from the input granules.
 
 Checked on 2026-10-25 from a fresh `git clone --recurse-submodules` with one day of SAT1 inputs (7 October 2024): in the 1,821 grid bins observed only on that day, every field is bit-identical to the official October 2024 monthly 3-SFC-SORTED-ALLSKY granule, apart from 5 standard-deviation values that differ by at most 1.2e-10. Each channel group takes about 1 minute.
 
