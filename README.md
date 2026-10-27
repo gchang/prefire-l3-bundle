@@ -8,7 +8,7 @@ git clone --recurse-submodules https://github.com/gchang/prefire-l3-bundle.git
 
 | Submodule | Source | Commit | Role |
 |---|---|---|---|
-| `PREFIRE_L3` | https://github.com/gchang/prefire-l3 (upstream https://github.com/UW-PREFIRE/PREFIRE_L3 `R01` with the fixes listed in its `MAAP_CHANGES.md`) | tag `R01.post1`, a893526f | the L3 product code (`dist/produce_L3.py`) |
+| `PREFIRE_L3` | https://github.com/gchang/prefire-l3 (upstream https://github.com/UW-PREFIRE/PREFIRE_L3 `R01` with the fixes listed in its `MAAP_CHANGES.md`) | tag `R01.post1`, bd12e7d0 | the L3 product code (`dist/produce_L3.py`) |
 | `PREFIRE_PRD_GEN` | https://github.com/UW-PREFIRE/PREFIRE_PRD_GEN | R01, e3933a38 | NetCDF read and write helpers |
 | `PREFIRE_tools` | https://github.com/UW-PREFIRE/PREFIRE_tools | R01, 3b590a6e | utilities |
 
